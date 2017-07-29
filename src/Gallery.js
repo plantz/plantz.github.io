@@ -14,25 +14,14 @@ class Gallery extends Component {
       plants: []
     }
   }
-  componentWillMount() {
-    if (!this.state.plants.length && this.props.accessToken) {
-      graph.setAccessToken(this.props.accessToken);
-      graph
-        .get(FB_QUERY, (err, res) => {
-          this.setState({ plants: res.data })
-        });
-        setTimeout(()=> {
-          graph
-            .get(FB_QUERY, (err, res) => {
-              this.setState({ plants: res.data })
-            });
-        }, 60000)
-    }
+  componentWillMount(){
+    this.props.getPlants();
   }
+
   render() {
     return (
         <div className="masonry-layout">
-          {this.state.plants && this.state.plants.map(post=> {
+          {this.props.plants && this.props.plants.map(post=> {
             return (
                 <div key={post.id} style={{ textAlign: 'left' }} className="masonry-layout-panel box">
                   <article className="content">
@@ -41,7 +30,7 @@ class Gallery extends Component {
                     </figure>}
 
                     <span>{moment(post.created_time).fromNow()}</span>
-                    <p className="is-size-4">{post.message}</p>
+                    <p className="is-size-5">{post.message}</p>
                     <div>
                       {post.comments && post.comments.data && post.comments.data
                           .map((comment)=> {
