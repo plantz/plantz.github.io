@@ -1,5 +1,5 @@
 {
   "FB_APP_ID": "1896905737249958",
   "FB_GROUP_ID": "156706504394635",
-  "FB_POSTS_QUERY": "feed?fields=full_picture,picture,message,comments{like_count,message},link,object_id,created_time&limit=200&include_hidden=true"
+  "FB_POSTS_QUERY": "feed?fields=full_picture,picture,message,link,object_id,created_time,comments.limit(7){like_count,message,id}&include_hidden=true"
 }

@@ -1,6 +1,6 @@
-.App {
+/*.App {
   text-align: center;
-}
+}*/
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -41,13 +41,17 @@
   }
 }
 
+.navbar {
+  position: absolute;
+  top: 0;
+}
+
 @media (min-width: 1208px) {
   .masonry-layout {
     column-count: 4;
     column-gap: 1;
   }
 }
-
 
 .masonry-layout-panel {
   break-inside: avoid;

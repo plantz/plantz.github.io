@@ -5,22 +5,28 @@
   "homepage": "https://plantz.github.io",
   "dependencies": {
     "bulma": "^0.4.4",
+    "dotenv": "^4.0.0",
     "fbgraph": "^1.4.1",
     "gh-pages": "^1.0.0",
     "insert-css": "^2.0.0",
     "moment": "^2.18.1",
+    "pouchdb": "^6.3.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-facebook-login": "^3.6.2",
+    "react-redux": "^5.0.5",
     "react-scripts": "^1.0.10",
     "useragent": "^2.2.1"
   },
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build -b master",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "node -r dotenv/config ./node_modules/.bin/react-scripts start dotenv_config_path=development.env",
+    "build": "node -r dotenv/config ./node_modules/.bin/react-scripts build dotenv_config_path=production.env",
+    "test": "node -r dotenv/config ./node_modules/.bin/react-scripts test --env=jsdom dotenv_config_path=test.env",
+    "eject": "node -r dotenv/config ./node_modules/.bin/react-scripts eject dotenv_config_path=development.env"
+  },
+  "devDependencies": {
+    "react-app-env": "^1.2.0"
   }
 }
